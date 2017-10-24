@@ -6,3 +6,6 @@
 /logs/*
 /model/*
 /output/*
+
+#HTML
+!/model/*.html
