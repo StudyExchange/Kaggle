@@ -2,7 +2,9 @@
 Kaggle practises
 
 # Projects
-1. [Titanic: Machine Learning from Disaster](https://www.kaggle.com/c/titanic)
-2. [Digit Recognizer](https://www.kaggle.com/c/digit-recognizer)
-3. [Dog Breed Identification](https://www.kaggle.com/c/dog-breed-identification)
-4. [Dogs vs. Cats Redux: Kernels Edition](https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition/kernels)
+1. [https://www.kaggle.com/c/titanic](https://www.kaggle.com/c/titanic)
+2. [https://www.kaggle.com/c/digit-recognizer](https://www.kaggle.com/c/digit-recognizer)
+3. [https://www.kaggle.com/c/dog-breed-identification](https://www.kaggle.com/c/dog-breed-identification)
+4. [https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition](https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition)
+5. [https://www.kaggle.com/c/statoil-iceberg-classifier-challenge](https://www.kaggle.com/c/statoil-iceberg-classifier-challenge)
+6. 
