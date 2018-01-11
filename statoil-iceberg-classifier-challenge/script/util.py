@@ -56,6 +56,16 @@ def load_sample_submission(is_preview=True):
         sample_submission.head(2)
     return sample_submission
 
+def load_id(is_preview=True):
+    id_data_path = os.path.join(input_path, 'id_data.p')
+    id_test_path = os.path.join(input_path, 'id_test.p')
+    id_data = pickle.load(open(id_data_path, mode='rb'))
+    id_test = pickle.load(open(id_test_path, mode='rb'))
+    if is_preview:
+        describe(id_data)
+        describe(id_test)
+    return id_data, id_test
+
 def load_y_data(is_preview=True):
     is_iceberg_path = os.path.join(input_path, 'is_iceberg.p')
     y_data = pickle.load(open(is_iceberg_path, mode='rb'))
@@ -63,7 +73,7 @@ def load_y_data(is_preview=True):
         describe(y_data)
     return y_data
 
-def load_data(target_size=75, is_preview=True):
+def load_band_data(target_size=75, is_preview=True):
     if target_size == 75:
         target_size_str = ''
     else:
@@ -77,7 +87,20 @@ def load_data(target_size=75, is_preview=True):
     band2_data = pickle.load(open(band2_data_path, mode='rb'))
     band1_test = pickle.load(open(band1_test_path, mode='rb'))
     band2_test = pickle.load(open(band2_test_path, mode='rb'))
+    if is_preview:
+        describe(band1_data)
+        describe(band2_data)
+        describe(band1_test)
+        describe(band2_test)
+    return band1_data, band2_data, band1_test, band2_test
 
+def load_data(target_size=75, is_preview=True):
+    if target_size == 75:
+        target_size_str = ''
+    else:
+        target_size_str = str(target_size)
+    
+    band1_data, band2_data, band1_test, band2_test = load_band_data(target_size=target_size, is_preview=False)
     band_max_data = np.maximum(band1_data, band2_data)
     band_max_test = np.maximum(band1_test, band2_test)
 
@@ -92,10 +115,6 @@ def load_data(target_size=75, is_preview=True):
         band_max_test[:, :, :, np.newaxis]], axis=-1)
 
     if is_preview:
-        describe(band1_data)
-        describe(band2_data)
-        describe(band1_test)
-        describe(band2_test)
         describe(band_max_data)
         describe(band_max_test)
 
