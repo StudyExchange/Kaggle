@@ -29,7 +29,7 @@ def get_run_name(project_name, item_name, acc=None):
     run_name = project_name + '-' + item_name + '-' + time_str
     if acc != None:
         acc_str = '{0:0>4}'.format(int(acc*10000))
-        run_name = run_name + '--' + acc_str
+        run_name = run_name + '-' + acc_str
     print('run_name: ' + run_name)
     return run_name
 
