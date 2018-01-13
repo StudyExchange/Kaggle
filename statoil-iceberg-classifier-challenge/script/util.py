@@ -4,24 +4,9 @@ import time
 import sys
 import os
 
-import pickle
-
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-
-cwd = os.getcwd()
-input_path = os.path.join(cwd, 'input')
-log_path = os.path.join(cwd, 'log')
-model_path = os.path.join(cwd, 'model')
-output_path = os.path.join(cwd, 'output')
-
-print('cwd: %s' % cwd)
-print('input_path: %s' % input_path)
-print('log_path: %s' % log_path)
-print('model_path: %s' % model_path)
-print('output_path: %s' % output_path)
-
 
 def get_run_name(project_name, item_name, acc=None):
     date_str = time.strftime("%Y%m%d", time.localtime())
@@ -32,6 +17,54 @@ def get_run_name(project_name, item_name, acc=None):
         run_name = run_name + '-' + acc_str
     print('run_name: ' + run_name)
     return run_name
+
+def get_html_folder(is_preview=False):
+    html_folder = os.path.join(os.getcwd(), 'html')
+    if not os.path.exists(html_folder):
+        os.mkdir(html_folder)
+    if is_preview:
+        print(html_folder)
+    return html_folder
+
+def get_input_folder(is_preview=False):
+    input_folder = os.path.join(os.getcwd(), 'input')
+    if not os.path.exists(input_folder):
+        os.mkdir(input_folder)
+    if is_preview:
+        print(input_folder)
+    return input_folder
+
+def get_input_processed_folder(is_preview=False):
+    input_processed_folder = os.path.join(os.getcwd(), 'input', 'processed')
+    if not os.path.exists(input_processed_folder):
+        os.mkdir(input_processed_folder)
+    if is_preview:
+        print(input_processed_folder)
+    return input_processed_folder
+
+def get_log_folder(is_preview=False):
+    log_folder = os.path.join(os.getcwd(), 'log')
+    if not os.path.exists(log_folder):
+        os.mkdir(log_folder)
+    if is_preview:
+        print(log_folder)
+    return log_folder
+
+def get_model_folder(is_preview=False):
+    model_folder = os.path.join(os.getcwd(), 'model')
+    if not os.path.exists(model_folder):
+        os.mkdir(model_folder)
+    if is_preview:
+        print(model_folder)
+    return model_folder
+
+def get_output_folder(is_preview=False):
+    output_folder = os.path.join(os.getcwd(), 'output')
+    if not os.path.exists(output_folder):
+        os.mkdir(output_folder)
+    if is_preview:
+        print(output_folder)
+    return output_folder
 
 def describe(arr):
     print(arr.shape, arr.min(), arr.max(), sys.getsizeof(arr))
@@ -49,44 +82,54 @@ def show_data_images(rows, fig_column, id_data, y_data, *args):
             ax[j].imshow(arg[i])
 
 def load_sample_submission(is_preview=True):
-    sample_submission_path = os.path.join(input_path, 'sample_submission.csv')
-    sample_submission = pd.read_csv(sample_submission_path)
+    sample_submission_file = os.path.join(get_input_folder(), 'sample_submission.csv')
+    sample_submission = pd.read_csv(sample_submission_file)
     print(sample_submission.shape)
     if is_preview:
-        sample_submission.head(2)
+        print(sample_submission.head(2))
     return sample_submission
 
 def load_id(is_preview=True):
-    id_data_path = os.path.join(input_path, 'id_data.p')
-    id_test_path = os.path.join(input_path, 'id_test.p')
-    id_data = pickle.load(open(id_data_path, mode='rb'))
-    id_test = pickle.load(open(id_test_path, mode='rb'))
+    id_data_file = os.path.join(get_input_processed_folder(), 'id_data.npy')
+    id_test_file = os.path.join(get_input_processed_folder(), 'id_test.npy')
+    id_data = np.load(id_data_file)
+    id_test = np.load(id_test_file)
     if is_preview:
         describe(id_data)
         describe(id_test)
     return id_data, id_test
 
 def load_y_data(is_preview=True):
-    is_iceberg_path = os.path.join(input_path, 'is_iceberg.p')
-    y_data = pickle.load(open(is_iceberg_path, mode='rb'))
+    y_data_file = os.path.join(get_input_processed_folder(), 'y_data.npy')
+    y_data = np.load(y_data_file)
     if is_preview:
         describe(y_data)
     return y_data
+
+def load_inc_angle_data(is_preview=True):
+    inc_angle_data_file = os.path.join(get_input_processed_folder(), 'inc_angle_data.npy')
+    inc_angle_test_file = os.path.join(get_input_processed_folder(), 'inc_angle_test.npy')
+    inc_angle_data = np.load(inc_angle_data_file)
+    inc_angle_test = np.load(inc_angle_test_file)
+    if is_preview:
+        describe(inc_angle_data)
+        describe(inc_angle_test)
+    return inc_angle_data, inc_angle_test
 
 def load_band_data(target_size=75, is_preview=True):
     if target_size == 75:
         target_size_str = ''
     else:
         target_size_str = str(target_size)
-    band1_data_path = os.path.join(input_path, 'band1_data_gray%s.p' % target_size_str)
-    band2_data_path = os.path.join(input_path, 'band2_data_gray%s.p' % target_size_str)
-    band1_test_path = os.path.join(input_path, 'band1_test_gray%s.p' % target_size_str)
-    band2_test_path = os.path.join(input_path, 'band2_test_gray%s.p' % target_size_str)
+    band1_data_file = os.path.join(get_input_processed_folder(), 'band1_data%s.npy' % target_size_str)
+    band2_data_file = os.path.join(get_input_processed_folder(), 'band2_data%s.npy' % target_size_str)
+    band1_test_file = os.path.join(get_input_processed_folder(), 'band1_test%s.npy' % target_size_str)
+    band2_test_file = os.path.join(get_input_processed_folder(), 'band2_test%s.npy' % target_size_str)
 
-    band1_data = pickle.load(open(band1_data_path, mode='rb'))
-    band2_data = pickle.load(open(band2_data_path, mode='rb'))
-    band1_test = pickle.load(open(band1_test_path, mode='rb'))
-    band2_test = pickle.load(open(band2_test_path, mode='rb'))
+    band1_data = np.load(band1_data_file)
+    band2_data = np.load(band2_data_file)
+    band1_test = np.load(band1_test_file)
+    band2_test = np.load(band2_test_file)
     if is_preview:
         describe(band1_data)
         describe(band2_data)
@@ -115,8 +158,8 @@ def load_data(target_size=75, is_preview=True):
         band_max_test[:, :, :, np.newaxis]], axis=-1)
 
     if is_preview:
-        describe(band_max_data)
-        describe(band_max_test)
+#         describe(band_max_data)
+#         describe(band_max_test)
 
         describe(x_data)
         describe(x_test)
