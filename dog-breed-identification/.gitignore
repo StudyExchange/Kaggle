@@ -16,5 +16,10 @@ nohup.out
 
 
 #HTML
+!/input/empty.txt
+!/output/empty.txt
+!/model/empty.txt
+!/log/empty.txt
+!/feature/empty.txt
 !/model/*.html
 
