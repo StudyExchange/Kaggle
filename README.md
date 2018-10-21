@@ -1,10 +1,20 @@
 # Kaggle
 Kaggle practises
 
-# Projects
+# Projects(16)
+- [https://www.kaggle.com/c/cvpr-2018-autonomous-driving](https://www.kaggle.com/c/cvpr-2018-autonomous-driving)
 - [https://www.kaggle.com/c/digit-recognizer](https://www.kaggle.com/c/digit-recognizer)
 - [https://www.kaggle.com/c/dog-breed-identification](https://www.kaggle.com/c/dog-breed-identification)
 - [https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition](https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition)
+- [https://www.kaggle.com/c/ga-customer-revenue-prediction](https://www.kaggle.com/c/ga-customer-revenue-prediction)
+- [https://www.kaggle.com/c/home-credit-default-risk](https://www.kaggle.com/c/home-credit-default-risk)
+- [https://www.kaggle.com/c/house-prices-advanced-regression-techniques](https://www.kaggle.com/c/house-prices-advanced-regression-techniques)
+- [https://www.kaggle.com/c/imaterialist-challenge-furniture-2018](https://www.kaggle.com/c/imaterialist-challenge-furniture-2018)
+- [https://www.kaggle.com/c/inclusive-images-challenge](https://www.kaggle.com/c/inclusive-images-challenge)
+- [https://www.kaggle.com/c/landmark-recognition-challenge](https://www.kaggle.com/c/landmark-recognition-challenge)
+- [https://www.kaggle.com/c/landmark-retrieval-challenge](https://www.kaggle.com/c/landmark-retrieval-challenge)
+- [https://www.kaggle.com/c/santander-value-prediction-challenge](https://www.kaggle.com/c/santander-value-prediction-challenge)
 - [https://www.kaggle.com/c/statoil-iceberg-classifier-challenge](https://www.kaggle.com/c/statoil-iceberg-classifier-challenge)
+- [https://www.kaggle.com/c/talkingdata-adtracking-fraud-detection](https://www.kaggle.com/c/talkingdata-adtracking-fraud-detection)
 - [https://www.kaggle.com/c/text-normalization-challenge-english-language](https://www.kaggle.com/c/text-normalization-challenge-english-language)
 - [https://www.kaggle.com/c/titanic](https://www.kaggle.com/c/titanic)
