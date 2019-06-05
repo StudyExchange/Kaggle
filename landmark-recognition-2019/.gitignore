@@ -1,6 +1,6 @@
 #Ipython Notebook
 .ipynb_checkpoints
-
+__pycache__/*
 
 # nohup log file
 nohup.out
@@ -12,4 +12,4 @@ nohup.out
 /model/*
 /log/*
 /feature/*
-/post_pca_feature/*
+/temp/*
